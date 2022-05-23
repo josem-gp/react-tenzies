@@ -20,9 +20,22 @@ function App() {
     return newDice;
   }
 
+  function holdDice(id) {
+    console.log(id);
+  }
+
   function mappedNewDice() {
     return allNewDice.map((die) => {
-      return <Die key={die.id} number={die.value} isHeld={die.isHeld} />;
+      return (
+        <Die
+          key={die.id}
+          number={die.value}
+          isHeld={die.isHeld}
+          holdDice={() => {
+            holdDice(die.id);
+          }}
+        />
+      );
     });
   }
 
