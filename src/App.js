@@ -6,8 +6,6 @@ import { nanoid } from "nanoid";
 function App() {
   const [allNewDice, setAllNewDice] = useState(newDice());
 
-  console.log(allNewDice);
-
   function newDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
@@ -21,7 +19,11 @@ function App() {
   }
 
   function holdDice(id) {
-    console.log(id);
+    setAllNewDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+      })
+    );
   }
 
   function mappedNewDice() {
