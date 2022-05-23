@@ -1,7 +1,10 @@
-function Die(prop) {
+function Die(props) {
   return (
-    <div className="die-face">
-      <h2 className="die-num">{prop.number}</h2>
+    <div
+      className="die-face"
+      style={{ backgroundColor: props.isHeld ? "#59E391" : "white" }}
+    >
+      <h2 className="die-num">{props.number}</h2>
     </div>
   );
 }
